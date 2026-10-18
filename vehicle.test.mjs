@@ -1,0 +1,3 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {driveSpeed,MAX_SPEED} from './vehicle.js';
+test('full throttle reaches exactly 300 km/h without overshoot at 30/60/144fps',()=>{for(const fps of [30,60,144]){let v=0;for(let n=0;n<fps*18;n++){v=driveSpeed(v,{throttle:1},1/fps);assert.ok(v<=MAX_SPEED)}assert.equal(v*3.6,300)}});
+test('brakes stop the car, reverse stays bounded and empty tank cannot accelerate',()=>{let v=MAX_SPEED;for(let n=0;n<180;n++)v=driveSpeed(v,{brake:true},1/60);assert.ok(v<.03);v=0;for(let n=0;n<600;n++)v=driveSpeed(v,{throttle:-1},1/60);assert.equal(v,-8);assert.equal(driveSpeed(0,{throttle:1,fuel:0},1),0);assert.ok(driveSpeed(MAX_SPEED,{offRoad:true},1/60)<=32)});

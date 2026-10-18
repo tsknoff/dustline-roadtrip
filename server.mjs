@@ -6,7 +6,7 @@ import {randomBytes} from 'node:crypto';
 import {WebSocketServer,WebSocket} from 'ws';
 export function createServer(){
  const root=path.dirname(fileURLToPath(import.meta.url)),rooms=new Map();
- const files=new Set(['index.html','style.css','game.js','world.js','direct.js','relay.js','vendor/peerjs.min.js','vendor/three.module.js']);
+ const files=new Set(['index.html','style.css','game.js','world.js','direct.js','relay.js','vehicle.js','vendor/peerjs.min.js','vendor/three.module.js']);
  const server=http.createServer(async(req,res)=>{let name;try{name=decodeURIComponent(new URL(req.url,'http://localhost').pathname).slice(1)||'index.html'}catch{res.writeHead(400).end();return}if(name==='health'){res.writeHead(200,{'Content-Type':'application/json'}).end('{"ok":true}');return}if(!files.has(name)){res.writeHead(404).end('Not found');return}try{const bytes=await readFile(path.join(root,name));res.writeHead(200,{'Content-Type':name.endsWith('.js')?'text/javascript':name.endsWith('.css')?'text/css':'text/html','Cache-Control':'no-cache','X-Content-Type-Options':'nosniff'}).end(bytes)}catch{res.writeHead(500).end('Unable to load game')}});
  const wss=new WebSocketServer({server,path:'/ws',maxPayload:16384});
  const send=(s,d)=>{if(s?.readyState===WebSocket.OPEN){if(s.bufferedAmount>262144){s.terminate();return}s.send(JSON.stringify(d))}};

@@ -1,1 +1,17 @@
-{"name":"dustline-roadtrip","version":"0.2.0","private":true,"type":"module","engines":{"node":">=22"},"scripts":{"start":"node server.mjs","test":"node --test server.test.mjs","check":"node --check server.mjs && node --check game.js && node --check relay.js"},"dependencies":{"ws":"^8.18.3"}}
+{
+  "name": "dustline-roadtrip",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test server.test.mjs vehicle.test.mjs",
+    "check": "node --check server.mjs && node --check game.js && node --check world.js && node --check relay.js && node --check vehicle.js"
+  },
+  "dependencies": {
+    "ws": "^8.18.3"
+  }
+}
