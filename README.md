@@ -20,3 +20,11 @@ Tests: npm test (room creation, join/full, bidirectional relay, leave/rejoin, ho
 - Sound, room-code copying, sensitivity, trackpad/mouse selection and fullscreen live in the Esc menu.
 
 Verified in Chrome on macOS: pointer lock/Esc/resume, denied-lock fallback wheel events, clipboard, sound, two-player networked zoom, cabin view and driving. Physical Mac trackpad feel still depends on browser/OS sensitivity. Vehicle tests cover 300 km/h at 30/60/144fps, braking, reverse, empty fuel and off-road limiting.
+
+## v0.4 — smooth multiplayer and hill country
+
+Client movement now uses sequenced input commands with host acknowledgments and replay of unacknowledged commands. Remote car motion is buffered/interpolated; cameras, occupants and car render from the same smoothed pose. Removed camera head-bob and artificial chassis shaking. Simulation/snapshot timers are independent from rendering. Incompatible with old clients: refresh both browsers and create a new room after update.
+
+Steering ramps in, self-centers and limits yaw at speed; leaving asphalt slows the car progressively. New E12-inspired model has a swept windshield, rounded nose/roof, narrow body, roof glass, arch trim and detailed wheels. Continuous sampled terrain supports road inclines, stronger bend sections, mountains, bushes, rocks, benches and marker posts.
+
+Validation: prediction/reconciliation tests with delayed batched acknowledgments, continuous terrain at chunk seams, steering and 300 km/h tests. Browser tests add approximately 180ms RTT and packet jitter: guest walking and driving, plus passenger camera while host turns. No reverse position jumps observed in these tests. Severe network stalls can still require resynchronization; no host migration.

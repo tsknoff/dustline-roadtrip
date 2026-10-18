@@ -1,6 +1,6 @@
 {
   "name": "dustline-roadtrip",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
   "type": "module",
   "engines": {
@@ -8,8 +8,8 @@
   },
   "scripts": {
     "start": "node server.mjs",
-    "test": "node --test server.test.mjs vehicle.test.mjs",
-    "check": "node --check server.mjs && node --check game.js && node --check world.js && node --check relay.js && node --check vehicle.js"
+    "test": "node --test server.test.mjs vehicle.test.mjs motion.test.mjs",
+    "check": "node --check server.mjs && node --check game.js && node --check world.js && node --check relay.js && node --check vehicle.js && node --check motion.js && node --check terrain.js"
   },
   "dependencies": {
     "ws": "^8.18.3"
