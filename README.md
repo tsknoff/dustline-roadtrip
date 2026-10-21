@@ -38,3 +38,11 @@ M at the AERO MART counter opens purchases: 5 cigarettes / 100 drift points, one
 Validation: 12 automated tests including multicar input replay, drift banking and purchase restrictions. Two-browser smoke verifies independent simultaneous drivers, guest earnings, walking camera, host-visible guest smoking/drinking, and shop debits with a browser-only seeded fixture. The game source starts wallets and inventories empty. Both clients must refresh and create a new room after deploying.
 
 Model references: early S110 sedan front/side reference photos at https://www.drom.ru/catalog/toyota/crown/g_1979_6406/ ; original procedural geometry, no copied assets. Arcade drift feel inspired by Deadline Delivery; not a reproduction of its physics.
+
+## v0.6 — woodland roads and animated travelers
+
+Roads alternate 1.5 km straights and 900 m quintic bends with continuous tangents. The shared deterministic route works in either direction. Replaced Aero towers/bubbles with autumn woodland, crooked trees, muted leaf litter, instanced dry grass, mushrooms, pumpkins, cottages, fences and lanterns. Stations and menus use wood/parchment colors.
+
+Walking leg/knee and arm animation follows actual rendered distance, blends to rest, and remains visible remotely. Seated legs bend; consumption actions retain the active arm animation. Wheel up stretches the walking avatar to 1.9x; down squashes/crouches to 0.4x. Host clamps the replicated stance; local prediction replays it. Camera height follows the smoothed stance. Alt + trackpad scroll retains the old look gesture; arrow-key look remains available.
+
+Validation: 14 automated tests, plus two-browser verification of remote walking/stopping, wheel stance replication, and first-person camera height. Scene visually inspected in Chrome. Refresh both clients and start a new room after deploying.

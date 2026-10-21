@@ -9,3 +9,8 @@ body{background:#91ddfa}.grain{background:linear-gradient(90deg,#083f5de8,#11688
 .wallet{position:absolute;right:32px;top:180px;display:flex;flex-direction:column;gap:7px;text-align:right;color:#f1ffff;text-shadow:0 2px 8px #193c4b}.wallet strong{font-size:32px}.wallet small{font-size:11px;letter-spacing:1px}#combo{color:#b9ffd5;font-size:13px}#shop{padding:18px;background:#254c46;border-radius:12px;margin:16px 0}#shop button{display:block;width:100%;margin:8px 0}.pause-card{max-height:90vh;overflow:auto}
 
 .shopping .pause-card>h2,.shopping .pause-card>.eyebrow,.shopping .pause-card>p,.shopping .pause-settings{display:none}.shopping #shop{margin:0}.wallet{background:linear-gradient(90deg,transparent,#17464655);padding:12px;border-radius:10px}
+
+/* Woodland edition: parchment, walnut and amber. */
+:root{--cream:#eedbb5;--ink:#29251f;--accent:#c98d4d}body{background:#292820;color:#eee0c3}.primary{background:#d6b779;color:#30271d}.secondary{background:#68533b55;border-color:#bba78266;color:#efdfbf}.pause-card{background:#3c3c2f;border-color:#a18c66}.wallet{background:linear-gradient(90deg,transparent,#30291f88)}#combo{color:#f1c97e}#shop{background:#514733}#capture{background:#4b4236cc;border-color:#bea77b}.dot{background:#ecc17a}.brand span,em{color:#e2b971}#postcard{color:#f1dfb7}
+
+.grain{background:linear-gradient(90deg,#25271ee8,#34332480 45%,transparent 80%),linear-gradient(0deg,#29291e80,transparent 30%)}.eyebrow,h1 em,.brand>span,.sun-icon,.features{color:#e2b971}.primary:hover{background:#e9ce99}.pause-settings select{background:#3d382d;border-color:#a18c66}.pause-settings input{accent-color:#d2ae6b}
