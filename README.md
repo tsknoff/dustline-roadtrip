@@ -28,3 +28,13 @@ Client movement now uses sequenced input commands with host acknowledgments and 
 Steering ramps in, self-centers and limits yaw at speed; leaving asphalt slows the car progressively. New E12-inspired model has a swept windshield, rounded nose/roof, narrow body, roof glass, arch trim and detailed wheels. Continuous sampled terrain supports road inclines, stronger bend sections, mountains, bushes, rocks, benches and marker posts.
 
 Validation: prediction/reconciliation tests with delayed batched acknowledgments, continuous terrain at chunk seams, steering and 300 km/h tests. Browser tests add approximately 180ms RTT and packet jitter: guest walking and driving, plus passenger camera while host turns. No reverse position jumps observed in these tests. Severe network stalls can still require resynchronization; no host migration.
+
+## v0.5 — independent cars, drift wallet and AERO MART
+
+Two cars spawn together: Libero and a procedural early Toyota Crown S110 sedan (1979), with separate fuel, motion and driver/passenger seats. There is no forward speed clamp; grass, drifting, coasting and brakes still reduce speed. Hold Shift with A/D above 25 km/h to initiate an arcade momentum slide. Release to regain grip. Valid moving slides accumulate a chain with up to x5 multiplier, banked after 0.8 seconds without a slide. Wallets belong to the host/guest player slots for this room, survive switching cars and are reset with a new session. No persistence after closing the room.
+
+M at the AERO MART counter opens purchases: 5 cigarettes / 100 drift points, one beer / 150. N smokes for 7s; B drinks for 4s. Inventory consumption, balances and action timestamps are host-authoritative. Both peers see the hand movement/items and smoke; first-person camera has a held prop. C now provides third-person walking as well as driving, and shows the local avatar.
+
+Validation: 12 automated tests including multicar input replay, drift banking and purchase restrictions. Two-browser smoke verifies independent simultaneous drivers, guest earnings, walking camera, host-visible guest smoking/drinking, and shop debits with a browser-only seeded fixture. The game source starts wallets and inventories empty. Both clients must refresh and create a new room after deploying.
+
+Model references: early S110 sedan front/side reference photos at https://www.drom.ru/catalog/toyota/crown/g_1979_6406/ ; original procedural geometry, no copied assets. Arcade drift feel inspired by Deadline Delivery; not a reproduction of its physics.
